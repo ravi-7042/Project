@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<a href="index.html">Home</a>
+<html>
+<head>
+  <title>Appointment Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
+    
+    /*for get bold ansternisk mark */
+    label[for="name"]:after,
+label[for="email"]:after,
+label[for="phone"]:after {
+  content:"*";
+  color:red;
+  font-weight:bold;
+  font-size: 1.5em;
+  margin-right: 0.2em;
+}
+
+label[for="date"]:after {
+  content: "";
+}
+
+    
+    /* set font family and color */
+    body {
+      color: #000;
+      font-family: 'Big Shoulders Text', cursive;
+      background-image: url("img/kk7.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* center the header text */
+    header {
+      text-align: center;
+    }
+
+    /* style the form labels */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    /* style the input fields */
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 100%;
+      margin-bottom: 10px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0px 0px 5px #4CAF50;
+    }
+
+    /* style the submit button */
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* style the form container */
+    form {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 4px;
+      box-shadow: 0px 0px 10px #ccc;
+    }
+
+    /* style the footer */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      font-size: 12px;
+    }
+
+    /* style the modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    /* style the modal content */
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px #ccc;
+      position: relative;
+    }
+
+    /* style the close button */
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 28px;
+      font-weight: bold;
+      color: #aaa;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+     
+    }
+
+/* style the button that opens the modal */
+.modal-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modal-button:hover {
+  background-color: #45a049;
+}
+
+/* style the input fields inside the modal */
+.modal-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.modal-input:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #4CAF50;
+}
+
+#date::-webkit-datetime-edit-day-field,
+#date::-webkit-datetime-edit-month-field,
+#date::-webkit-datetime-edit-year-field {
+    text-transform: uppercase;
+}
+
+#dateTime {
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Consultancy With Our Experts</h1>
+</header>
+
+<form action="/submit-form" method="POST">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email: </label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="phone">Phone: </label>
+  <input type="tel" id="phone" name="phone" required>
+
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date">
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="4"></textarea>
+
+  <input type="submit" value="Submit">
+</form>
+
+
+<footer>
+  <p>&copy; <span id="currentYear"></span></p>
+  <p id="dateTime"></p>
+</footer>
+
+<script>
+  // Update date and time every second
+  setInterval(function() {
+    var now = new Date();
+    var dateTime = now.toLocaleString();
+    document.getElementById("dateTime").innerHTML = dateTime;
+  }, 1000);
+
+  // close the modal when the user clicks outside of it
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('modal')) {
+      document.getElementById('modal').style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>
