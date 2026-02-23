@@ -42,7 +42,7 @@
 
 .section-intro {
     height: 820px;
-    background-image: url(img/kk5.webp);
+    background-image: url(kk5.webp);
     background-size: cover;
     display: flex;
     flex-direction: column;
