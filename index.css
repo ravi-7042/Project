@@ -245,6 +245,41 @@ gap: 80px;
     .flex-column-contact {
       flex-basis: 30%;
     }
+    /* -------- MOBILE RESPONSIVE FIX -------- */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 95% !important;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .row {
+    display: block !important;
+  }
+
+  .col, 
+  .col-md-6, 
+  .col-lg-4 {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+}
   
   
 }
